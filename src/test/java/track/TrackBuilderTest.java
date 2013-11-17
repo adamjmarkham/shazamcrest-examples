@@ -11,6 +11,7 @@ import static com.shazam.shazamcrest.matcher.Matchers.sameBeanAs;
 import static model.Artist.artist;
 import static model.Title.title;
 import static model.track.Track.Builder.track;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class TrackBuilderTest {
@@ -19,13 +20,13 @@ public class TrackBuilderTest {
     public static final Title TITLE = title("title");
 
     @Test
-    public void test() {
+    public void buildsTrackWithArtistAndTitle() {
         TrackBuilder trackBuilder = new TrackBuilder();
         Track track = trackBuilder.buildTrackWith(artist("artist"), title("title"));
-        assertThat(track, sameBeanAs(track()
+        assertThat(track, is(sameBeanAs(track()
                                         .withArtist(ARTIST)
                                         .withTitle(TITLE)
-                                        .build()));
+                                        .build())));
 
 
     }

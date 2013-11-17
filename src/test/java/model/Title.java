@@ -3,7 +3,7 @@ package model;
 public class Title {
     private final String title;
 
-    public Title(String title) {
+    private Title(String title) {
         this.title = title;
     }
 
